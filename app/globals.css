@@ -1,0 +1,200 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* =========================================================================
+   Design tokens — see docs/DESIGN_SYSTEM.md. Colour carries meaning:
+   A = muted blue, B = muted cyan, Gross Split = sand, cost = copper.
+   ========================================================================= */
+:root {
+  /* surfaces */
+  --bg: #070b14;
+  --bg-deep: #05080f;
+  --surface: #0d1524;
+  --surface-2: #131d31;
+  --paper: #f2efe8;
+  --paper-2: #e8e3d8;
+
+  /* text */
+  --text: #e9eef5;
+  --text-2: #a4b1c3;
+  --text-3: #7d8ca1;
+  --ink: #0b1220;
+  --ink-2: #475467;
+
+  /* lines */
+  --line: rgb(148 168 196 / 0.14);
+  --line-strong: rgb(148 168 196 / 0.3);
+  --line-paper: rgb(11 18 32 / 0.14);
+
+  /* accent + data */
+  --accent: #5ec4da;
+  --accent-soft: rgb(94 196 218 / 0.14);
+  --scen-a: #7f98cf;
+  --scen-b: #5ec4da;
+  --gross-split: #d8b98a;
+  --gross-split-ink: #8a6532;
+  --cost-recovery: #8392a8;
+  --cost: #c98b66;
+  --gov: #56657c;
+  --reservoir: #b7925e;
+
+  /* shadcn bridge (dark only) */
+  --background: var(--bg);
+  --foreground: var(--text);
+  --card: var(--surface);
+  --card-foreground: var(--text);
+  --popover: var(--surface-2);
+  --popover-foreground: var(--text);
+  --primary: var(--accent);
+  --primary-foreground: #04121a;
+  --secondary: var(--surface-2);
+  --secondary-foreground: var(--text);
+  --muted: var(--surface);
+  --muted-foreground: var(--text-2);
+  --accent-foreground: #04121a;
+  --destructive: #e5484d;
+  --border: var(--line);
+  --input: var(--line-strong);
+  --ring: var(--accent);
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-deep: var(--bg-deep);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-text: var(--text);
+  --color-text-2: var(--text-2);
+  --color-text-3: var(--text-3);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-line-paper: var(--line-paper);
+  --color-accent-soft: var(--accent-soft);
+  --color-scen-a: var(--scen-a);
+  --color-scen-b: var(--scen-b);
+  --color-gross-split: var(--gross-split);
+  --color-gross-split-ink: var(--gross-split-ink);
+  --color-cost-recovery: var(--cost-recovery);
+  --color-cost: var(--cost);
+  --color-gov: var(--gov);
+  --color-reservoir: var(--reservoir);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* type */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-display: var(--font-instrument-serif), Georgia, serif;
+  --font-heading: var(--font-display);
+
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.45;
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.65;
+  --text-lede: clamp(1.125rem, 0.95rem + 0.6vw, 1.375rem);
+  --text-lede--line-height: 1.55;
+  --text-h3: clamp(1.6rem, 1.15rem + 1.1vw, 2.2rem);
+  --text-h3--line-height: 1.2;
+  --text-h2: clamp(2.5rem, 1.4rem + 3.6vw, 4.75rem);
+  --text-h2--line-height: 1.02;
+  --text-display: clamp(3rem, 1.3rem + 4.6vw, 6.4rem);
+  --text-display--line-height: 0.94;
+  --text-metric: clamp(2.5rem, 1.6rem + 2.8vw, 4.25rem);
+  --text-metric--line-height: 1;
+
+  /* radius / shadow / blur */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.5rem;
+  --radius-4xl: 2rem;
+  --shadow-panel: 0 1px 0 rgb(255 255 255 / 0.04) inset, 0 30px 60px -30px rgb(0 0 0 / 0.6);
+  --blur-glass: 14px;
+
+  /* motion (mirrors lib/motion.ts) */
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* layout */
+  --container-page: 78rem;
+  --container-prose: 44rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    background: var(--bg);
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-bg font-sans text-body text-text antialiased;
+    overflow-x: clip;
+  }
+  ::selection {
+    background: rgb(94 196 218 / 0.3);
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .on-paper :focus-visible {
+    outline-color: #0b6c86;
+  }
+}
+
+@layer utilities {
+  .container-page {
+    width: 100%;
+    max-width: var(--container-page);
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 3rem);
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  .eyebrow {
+    @apply font-mono text-[0.75rem] tracking-[0.14em] text-text-3 uppercase;
+  }
+  .hairline-grid {
+    background-image:
+      linear-gradient(to right, var(--line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
