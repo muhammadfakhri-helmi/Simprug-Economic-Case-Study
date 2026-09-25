@@ -5,7 +5,7 @@ integrated field development (Plan of Development): how reservoir, well,
 production and facility assumptions become CAPEX, OPEX, fiscal take, cashflow,
 NPV / IRR / DPI / POT / value creation — and finally an investment recommendation.
 
-**Live site:** _set after first deployment_
+**Live site:** https://muhammadfakhri-helmi.github.io/Simprug-Economic-Case-Study/
 
 > Academic capstone project · Team of 5 · My role: Economic Analyst · Presented to
 > oil & gas industry professionals. Figures come from the team's final report;
